@@ -8,7 +8,12 @@
 
     <body>
         <div id="app">
-                {{music}}
+               
+                <ul>
+                    <li v-for="composer in composers">
+                        {{composer}}
+                    </li>
+                </ul>
 
 
         </div>
@@ -20,7 +25,11 @@
         const app = new Vue({
             el: "#app",
             data: {
-                music: "Mozart"
+                composers: [
+                "Mozart",
+                "Bach",
+                "Rachmaninov"
+                ] 
             }
         })
     
