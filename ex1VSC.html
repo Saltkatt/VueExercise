@@ -5,13 +5,19 @@
     <meta charset="utf-8" />
     <title>Vue1</title>
     <script src ="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .orange{
+            background-color: orange;
+        }
+    </style>
 </head>
 <body>
     <!-- Tag for vue to find -->
     <div id="app">
-        <!--<p v-text="king"></p>-->
-        <!--<p v-show="king.length"></p>-->
-        <ul v-if="showKings">
+        /* <!--<p v-text="king"></p>-->
+        <!--<p v-show="king.length"></p>--> */
+        /* <ul v-if="showKings"> */
+        <ul v-bind:class="{orange: newKingAlreadyExists}">
             <li v-for="king, index in kings" v-bind:key="index">
                 {{king}}
 
@@ -34,12 +40,19 @@
                 "Gustav II Adolf"
             ],
             showKings: true,
-            newKing: ""
+            newKing: "",
+            newKingAlreadyExists: false
         },
         // connects to input and button
         methods: {
-            addKing: function () {
+            addKing: function (){
+                if(this.kings.includes(this.newKing)){
+                    newKingAlreadyExists = true;
+                    return;
+                }
+               
                 this.kings.push(this.newKing);
+                
             }
         }
     })
