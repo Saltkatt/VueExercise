@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Vue1</title>
+    <script src ="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <!-- Tag for vue to find -->
+    <div id="app">
+        <!--<p v-text="king"></p>-->
+        <!--<p v-show="king.length"></p>-->
+        <ul v-if="showKings">
+            <li v-for="king, index in kings" v-bind:key="index">
+                {{king}}
+
+            </li>
+        </ul>
+        <input type="text" v-model="newKing"/>
+        <button v-on:click="addKing">Dags för ny kung</button>
+    </div>
+
+
+</body>
+</html>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            kings: [
+                "Gustav III",
+                "Karl XII",
+                "Gustav II Adolf"
+            ],
+            showKings: true,
+            newKing: ""
+        },
+        // connects to input and button
+        methods: {
+            addKing: function () {
+                this.kings.push(this.newKing);
+            }
+        }
+    })
+</script>
