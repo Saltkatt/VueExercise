@@ -14,6 +14,8 @@
                         {{composer}}
                     </li>
                 </ul>
+                <input type="text" v-model="newComposer">
+                <button v-on:click="addComposer">Add new composer</button>
 
 
         </div>
@@ -29,7 +31,14 @@
                 "Mozart",
                 "Bach",
                 "Rachmaninov"
-                ] 
+                ],
+                newComposer: "" 
+            },
+            methods: {
+                addComposer: function(){
+                    this.composers.push(this.newComposer);
+                }
+
             }
         })
     
