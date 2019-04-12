@@ -25,6 +25,14 @@
                 <button v-on:click="addComposer">Add new composer</button>
                 <br>
                 <button v-on:click="say('Hej!!')">Säg Hej</button>
+            <h1 v-once>{{title1}}</h1>
+            <button v-on:click="showInstruments = !showInstruments">Show Instruments</button>
+                <ul v-show="showInstruments">
+                    <li v-for="instrument in instruments">
+                        {{instrument}}
+                    </li>
+                </ul>
+                
 
 
         </div>
@@ -45,7 +53,14 @@
                 showComposers: false,
                 newComposer: "", 
                 title: "List of composers",
-                orangeIsCool: false
+                title1: "List of instruments",
+                orangeIsCool: false,
+                instruments: [
+                    "Piano",
+                    "Cello", 
+                    "Clarinet"
+                ],
+                showInstruments: false
 
                 
             },
@@ -58,9 +73,17 @@
                 },
                 say: function(message){
                     alert(message)
-                }
+                },
+                list: function(){
+                    if(list % 2 == 0){
+                        this.showInstruments = true;
 
-               
+                    }
+                    else{
+                        this.showInstruments = false;
+                    }
+                    
+                }
 
             }
         })
