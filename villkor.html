@@ -8,7 +8,8 @@
 </head>
 <body>
     <div id="app">
-        <ul v-if="showValue, value > 25">
+        <!-- <ul v-if="showValue, value > 25"> -->
+        <ul v-show="showValue, true">
            {{value}}
         </ul>
 
