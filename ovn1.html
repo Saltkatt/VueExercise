@@ -4,6 +4,11 @@
         <meta charset="utf-8" />
         <title>Vue2</title>
         <script src ="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <style>
+                .orange{
+                    background-color: rgb(255, 0, 191);
+                }
+            </style>
     </head>
 
     <body>
@@ -11,7 +16,7 @@
                
                 <!-- <ul v-if="showComposers, composers > 0"> -->
             <h1 v-once>{{title}}</h1>
-                <ul>
+                <ul v-bind:class="{orange:orangeIsCool}">
                     <li v-for="composer in composers">
                         {{composer}}
                     </li>
@@ -37,13 +42,17 @@
                 
                 showComposers: false,
                 newComposer: "", 
-                title: "List of composers"
+                title: "List of composers",
+                orangeIsCool: false
 
                 
             },
             methods: {
                 addComposer: function(){
                     this.composers.push(this.newComposer);
+                    if(this.composers.length > 3){
+                        this.orangeIsCool = true;
+                    }
                 },
                
 
