@@ -26,12 +26,18 @@
                 <br>
                 <button v-on:click="say('Hej!!')">Säg Hej</button>
             <h1 v-once>{{title1}}</h1>
+            <!-- <button v-on:click="list">Show Instruments</button> -->
             <button v-on:click="showInstruments = !showInstruments">Show Instruments</button>
                 <ul v-show="showInstruments">
                     <li v-for="instrument in instruments">
                         {{instrument}}
                     </li>
                 </ul>
+            <h1 v-once>{{title2}}</h1>
+            <div v-show="showImage">
+                <img  v-bind:src="image">
+            </div>
+            <input @keyup.enter="greet">
                 
 
 
@@ -54,13 +60,17 @@
                 newComposer: "", 
                 title: "List of composers",
                 title1: "List of instruments",
+                title2: "Picture",
                 orangeIsCool: false,
                 instruments: [
                     "Piano",
                     "Cello", 
                     "Clarinet"
                 ],
-                showInstruments: false
+                showInstruments: false,
+                image: "https://theartmad.com/wp-content/uploads/2015/03/Bunny-3.jpg",
+                showImage: false,
+                greeting: "Hello"
 
                 
             },
@@ -74,16 +84,15 @@
                 say: function(message){
                     alert(message)
                 },
-                list: function(){
-                    if(list % 2 == 0){
-                        this.showInstruments = true;
-
-                    }
-                    else{
-                        this.showInstruments = false;
-                    }
-                    
+                // list: function(){
+                //     this.showInstruments = true;   
+                // }
+                greet: function(){
+                    console.log("slfdjl")
+                    this.showImage = true;
                 }
+
+
 
             }
         })
