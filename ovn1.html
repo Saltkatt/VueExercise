@@ -9,8 +9,9 @@
     <body>
         <div id="app">
                
-                <!-- <ul v-if="showComposers"> -->
-                <ul v-if="showNewValue">
+                <!-- <ul v-if="showComposers, composers > 0"> -->
+            <h1 v-once>{{title}}</h1>
+                <ul>
                     <li v-for="composer in composers">
                         {{composer}}
                     </li>
@@ -33,20 +34,18 @@
                 "Bach",
                 "Rachmaninov"
                 ],
-                instrument: "Piano",
-                // showComposers: false,
+                
+                showComposers: false,
                 newComposer: "", 
-                newValue: 5
+                title: "List of composers"
+
+                
             },
             methods: {
                 addComposer: function(){
                     this.composers.push(this.newComposer);
                 },
-                showNewValue: function(){
-                    if(newValue < 0)
-                    instrument: "Piano"
-                    return;
-                } 
+               
 
             }
         })
