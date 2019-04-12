@@ -23,6 +23,8 @@
                 </ul>
                 <input type="text" v-model="newComposer">
                 <button v-on:click="addComposer">Add new composer</button>
+                <br>
+                <button v-on:click="say('Hej!!')">Säg Hej</button>
 
 
         </div>
@@ -54,6 +56,10 @@
                         this.orangeIsCool = true;
                     }
                 },
+                say: function(message){
+                    alert(message)
+                }
+
                
 
             }
